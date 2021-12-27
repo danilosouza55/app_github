@@ -25,7 +25,6 @@ class UserModel extends User {
   final int publicRepos;
   final int followers;
   final int following;
-  final int totalPrivateRepos;
 
   UserModel({
     required this.id,
@@ -48,7 +47,6 @@ class UserModel extends User {
     required this.publicRepos,
     required this.followers,
     required this.following,
-    required this.totalPrivateRepos,
   }) : super(
           id: id,
           login: login,
@@ -70,38 +68,37 @@ class UserModel extends User {
           publicRepos: publicRepos,
           followers: followers,
           following: following,
-          totalPrivateRepos: totalPrivateRepos,
         );
 
   static UserModel fromMap(Map<String, dynamic> json) {
     return UserModel(
-        id: json['id'],
-        login: json['login'],
-        avatarUrl: json['avatar_url'],
-        htmlUrl: json['html_url'],
-        followersUrl: json['followers_url'],
-        followingUrl: json['following_url'],
-        gistsUrl: json['gists_url'],
-        subscriptionsUrl: json['subscriptions_url'],
-        organizationsUrl: json['organizations_url'],
-        reposUrl: json['repos_url'],
-        eventsUrl: json['events_url'],
-        receivedEventsUrl: json['received_events_url'],
-        name: json['name'],
-        company: json['company'],
-        location: json['location'],
-        email: json['email'],
-        bio: json['bio'],
-        publicRepos: json['public_repos'],
-        followers: json['followers'],
-        following: json['following'],
-        totalPrivateRepos: json['total_private_repos']);
+      id: json['id'],
+      login: json['login'],
+      avatarUrl: json['avatar_url'] ?? '',
+      htmlUrl: json['html_url'],
+      followersUrl: json['followers_url'],
+      followingUrl: json['following_url'],
+      gistsUrl: json['gists_url'],
+      subscriptionsUrl: json['subscriptions_url'],
+      organizationsUrl: json['organizations_url'],
+      reposUrl: json['repos_url'],
+      eventsUrl: json['events_url'],
+      receivedEventsUrl: json['received_events_url'],
+      name: json['name'],
+      company: json['company'],
+      location: json['location'],
+      email: json['email'],
+      bio: json['bio'],
+      publicRepos: json['public_repos'],
+      followers: json['followers'],
+      following: json['following'],
+    );
   }
 
   static UserModel fromJson(String source) => fromMap(json.decode(source));
 
   @override
   String toString() {
-    return 'UserModel{id: $id, login: $login, avatarUrl: $avatarUrl, htmlUrl: $htmlUrl, followersUrl: $followersUrl, followingUrl: $followingUrl, gistsUrl: $gistsUrl, subscriptionsUrl: $subscriptionsUrl, organizationsUrl: $organizationsUrl, reposUrl: $reposUrl, eventsUrl: $eventsUrl, receivedEventsUrl: $receivedEventsUrl, name: $name, company: $company, location: $location, email: $email, bio: $bio, publicRepos: $publicRepos, followers: $followers, following: $following, totalPrivateRepos: $totalPrivateRepos}';
+    return 'UserModel{id: $id, login: $login, avatarUrl: $avatarUrl, htmlUrl: $htmlUrl, followersUrl: $followersUrl, followingUrl: $followingUrl, gistsUrl: $gistsUrl, subscriptionsUrl: $subscriptionsUrl, organizationsUrl: $organizationsUrl, reposUrl: $reposUrl, eventsUrl: $eventsUrl, receivedEventsUrl: $receivedEventsUrl, name: $name, company: $company, location: $location, email: $email, bio: $bio, publicRepos: $publicRepos, followers: $followers, following: $following}';
   }
 }

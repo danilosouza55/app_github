@@ -21,6 +21,10 @@ class Search extends ChangeNotifier {
       active = true;
     });
 
+    print(result.isRight());
+    print(active);
+    print(user.toString());
+
     notifyListeners();
   }
 }

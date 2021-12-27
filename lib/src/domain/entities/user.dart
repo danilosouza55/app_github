@@ -21,7 +21,6 @@ class User {
   final int publicRepos;
   final int followers;
   final int following;
-  final int totalPrivateRepos;
 
   User({
     required this.id,
@@ -44,6 +43,5 @@ class User {
     required this.publicRepos,
     required this.followers,
     required this.following,
-    required this.totalPrivateRepos,
   });
 }

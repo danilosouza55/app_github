@@ -16,6 +16,7 @@ class SearchRepositoryImpl implements SearchRepository {
 
       return right(list);
     } catch (e) {
+      print(e.toString());
       return left(ErrorSearch());
     }
   }
