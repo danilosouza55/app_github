@@ -81,6 +81,7 @@ class ColorsConstants {
   static Color bordaError = red;
   static Color bordaLight = white;
   static Color bordaSucesso = stone;
+  static Color bordastoneLigth = stoneLigth;
 
   //Button
   static MaterialStateProperty<Color> botaoPrincipal =

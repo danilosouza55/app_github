@@ -1,4 +1,3 @@
-import 'package:app_github/src/domain/usecases/search.dart';
 import 'package:app_github/src/external/github/github_search_datasource.dart';
 import 'package:app_github/src/infra/repositories/search_repository_impl.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -17,10 +16,26 @@ main() {
   test('user', () async {
     final _repository = SearchRepositoryImpl(_api);
 
-    final result = await _repository.getUser('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');
+    final result = await _repository.getUser('');
     result.fold((l) => {}, (r) {
       _logger.i([
-        'Test getUser',
+        'Test user',
+        r.toString(),
+      ]);
+    });
+
+    expect(result.isRight(), true);
+  });
+
+  test('repos', () async {
+    final _repository = SearchRepositoryImpl(_api);
+
+    final user = await _api.getUser('');
+
+    final result = await _repository.getRepos(user.login);
+    result.fold((l) => {}, (r) {
+      _logger.i([
+        'Test repos',
         r.toString(),
       ]);
     });

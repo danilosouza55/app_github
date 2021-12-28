@@ -1,3 +1,4 @@
+import 'package:app_github/src/domain/entities/repo.dart';
 import 'package:app_github/src/domain/entities/user.dart';
 import 'package:app_github/src/domain/errors/erros.dart';
 import 'package:app_github/src/domain/repositories/search_repository.dart';
@@ -16,7 +17,17 @@ class SearchRepositoryImpl implements SearchRepository {
 
       return right(list);
     } catch (e) {
-      print(e.toString());
+      return left(ErrorSearch());
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<Repo>>> getRepos(String login) async {
+    try {
+      final list = await _datasource.getRepos(login);
+
+      return right(list);
+    } catch (e) {
       return left(ErrorSearch());
     }
   }

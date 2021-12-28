@@ -1,6 +1,7 @@
 import 'package:app_github/src/app_provider.dart';
 import 'package:app_github/src/presenter/page/home_page.dart';
 import 'package:app_github/src/presenter/page/login_page.dart';
+import 'package:app_github/src/presenter/page/repo_page.dart';
 import 'package:app_github/src/presenter/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
@@ -41,7 +42,8 @@ class AppModule extends StatelessWidget {
           initialRoute: '/login',
           routes: {
             '/': (context) => const HomePage(),
-            '/login': (context) => const LoginPage()
+            '/login': (context) => const LoginPage(),
+            '/repos': (context) => RepoPage(),
           },
         ),
       ),

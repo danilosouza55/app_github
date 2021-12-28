@@ -1,3 +1,4 @@
+import 'package:app_github/src/domain/entities/repo.dart';
 import 'package:app_github/src/domain/entities/user.dart';
 import 'package:app_github/src/domain/repositories/search_repository.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +8,7 @@ class Search extends ChangeNotifier {
   User? user;
   String key = '';
   bool active = false;
+  List<Repo> repos = [];
 
   Search(this._repository);
 
@@ -21,9 +23,15 @@ class Search extends ChangeNotifier {
       active = true;
     });
 
-    print(result.isRight());
-    print(active);
-    print(user.toString());
+    notifyListeners();
+  }
+
+  getRepos() async {
+    final result = await _repository.getRepos(user!.login);
+
+    result.fold((l) {}, (r) {
+      repos = r;
+    });
 
     notifyListeners();
   }

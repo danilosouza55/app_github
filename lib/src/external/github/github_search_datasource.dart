@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:app_github/src/infra/datasources/search_datasource.dart';
+import 'package:app_github/src/infra/models/repo_model.dart';
 import 'package:app_github/src/infra/models/user_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:logger/logger.dart';
@@ -48,5 +49,40 @@ class GithubSearchDatasource implements SearchDatasource {
     }
 
     return UserModel.fromJson(resp.body);
+  }
+
+  @override
+  Future<List<RepoModel>> getRepos(String login) async {
+    final url = Uri.https(_host, 'users/$login/repos');
+    final headers = {
+      'authorization': base64(),
+      'Content-Type': 'application/json',
+    };
+
+    final resp = await http.get(
+      url,
+      headers: headers,
+    );
+    print(login);
+
+    _logger.i([
+      'request getRepos',
+      url.toString(),
+      headers,
+      jsonDecode(resp.body),
+    ]);
+
+    if (resp.statusCode != 200) {
+      throw 'Erro no retorno os repositorios!';
+    }
+
+    List<RepoModel> repos = [];
+    final respBody = jsonDecode(resp.body);
+
+    for (final repo in respBody) {
+      repos.add(RepoModel.fromMap(repo));
+    }
+
+    return repos;
   }
 }
