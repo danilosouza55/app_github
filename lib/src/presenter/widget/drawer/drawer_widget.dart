@@ -78,6 +78,6 @@ class DrawerWidget extends StatelessWidget {
   void onSair(BuildContext context, Search search) {
     search.clean();
 
-    Navigator.pushNamed(context, '/login');
+    Navigator.pushReplacementNamed(context, '/login');
   }
 }

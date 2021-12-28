@@ -60,7 +60,7 @@ class _LoginPageState extends State<LoginPage> {
                       onPressed: _loadCadastro
                           ? null
                           : () {
-                              carregarDados(search);
+                              _carregarDados(search);
                             },
                       style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.all(16.0),
@@ -89,7 +89,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  carregarDados(Search search) async {
+  _carregarDados(Search search) async {
     if (_formKey.currentState!.validate()) {
       carregarTela = false;
 

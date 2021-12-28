@@ -11,20 +11,10 @@ class RepoPage extends StatelessWidget {
 
   RepoPage({Key? key}) : super(key: key);
 
-  init(Search search) async {
-    if (carregando) {
-      await search.getRepos();
-
-      carregando = false;
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     final search = Provider.of<Search>(context);
     final repos = search.repos;
-
-    init(search);
 
     return PageTheme(
       child: Scrollbar(
