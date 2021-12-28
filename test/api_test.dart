@@ -17,7 +17,7 @@ main() {
   test('user', () async {
     final _repository = SearchRepositoryImpl(_api);
 
-    final result = await _repository.getUser('');
+    final result = await _repository.getUser('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');
     result.fold((l) => {}, (r) {
       _logger.i([
         'Test user',
@@ -31,7 +31,7 @@ main() {
   test('repos', () async {
     final _repository = SearchRepositoryImpl(_api);
 
-    final user = await _api.getUser('');
+    final user = await _api.getUser('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');
 
     final result = await _repository.getRepos(user.login);
     result.fold((l) => {}, (r) {
