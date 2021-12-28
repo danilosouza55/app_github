@@ -35,4 +35,11 @@ class Search extends ChangeNotifier {
 
     notifyListeners();
   }
+
+  clean() async {
+    active = false;
+    repos = [];
+
+    notifyListeners();
+  }
 }

@@ -1,3 +1,4 @@
+import 'package:app_github/src/domain/usecases/search.dart';
 import 'package:app_github/src/external/github/github_search_datasource.dart';
 import 'package:app_github/src/infra/repositories/search_repository_impl.dart';
 import 'package:flutter_test/flutter_test.dart';
