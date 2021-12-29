@@ -39,4 +39,4 @@ jobs:
         with:
           args: deploy --only hosting
         env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_APP_GITHUB_DANILO }}
+          FIREBASE_SERVICE_ACCOUNT_APP_GITHUB_DANILO: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_APP_GITHUB_DANILO }}
