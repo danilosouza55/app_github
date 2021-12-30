@@ -46,7 +46,7 @@ class _LoginPageState extends State<LoginPage> {
                   height: 100,
                 ),
                 InputText(
-                  titulo: 'Informe a key do GitHub',
+                  titulo: 'Informe a chave de conexão do GitHub',
                   isNull: false,
                   controller: keyController,
                   icon: Icons.password,
